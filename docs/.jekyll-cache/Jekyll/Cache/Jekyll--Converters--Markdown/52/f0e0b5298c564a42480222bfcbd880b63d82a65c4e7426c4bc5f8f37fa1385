@@ -1,0 +1,112 @@
+I"�
+
+<div class="feature__wrapper">
+
+  
+
+    
+
+    <div class="feature__item">
+      <div class="archive__item">
+        
+          <div class="archive__item-teaser">
+            <img src="/assets/images/cover/logbook.jpg" alt="Logbook" />
+            
+          </div>
+        
+
+        <div class="archive__item-body">
+          
+            <h2 class="archive__item-title">Logbook</h2>
+          
+
+          
+            <div class="archive__item-excerpt">
+              <p>Goals, progress, problems and solutions achieved during development</p>
+
+            </div>
+          
+
+          
+            <p><a href="/logbook/" class="btn btn--primary">Learn more</a></p>
+          
+        </div>
+      </div>
+    </div>
+  
+
+    
+
+    <div class="feature__item">
+      <div class="archive__item">
+        
+          <div class="archive__item-teaser">
+            <img src="/assets/images/cover/install.png" alt="Install" />
+            
+          </div>
+        
+
+        <div class="archive__item-body">
+          
+            <h2 class="archive__item-title">Install</h2>
+          
+
+          
+            <div class="archive__item-excerpt">
+              <p>Use of the software. Instructions for replicating project content.</p>
+
+            </div>
+          
+
+          
+            <p><a href="/install/" class="btn btn--primary">Learn more</a></p>
+          
+        </div>
+      </div>
+    </div>
+  
+
+    
+
+    <div class="feature__item">
+      <div class="archive__item">
+        
+          <div class="archive__item-teaser">
+            <img src="/assets/images/cover/about.jpg" alt="About" />
+            
+          </div>
+        
+
+        <div class="archive__item-body">
+          
+            <h2 class="archive__item-title">About</h2>
+          
+
+          
+            <div class="archive__item-excerpt">
+              <p>More information about the project. References used, guides, articles, etc.</p>
+
+            </div>
+          
+
+          
+            <p><a href="/about/" class="btn btn--primary">Learn more</a></p>
+          
+        </div>
+      </div>
+    </div>
+  
+
+</div>
+
+<p>Hello, everybody.</p>
+
+<p>You can write an introduction about the work you are going to do, links, something about yourself, etc.</p>
+
+<p>In the <code class="highlighter-rouge">README.md</code> file at the root of the project are the steps to replicate the Minimal mistakes template on your local machine. This way you don’t need to upload it to GitHub to be represented until it’s ready.</p>
+
+<p>Uploading content to GitHub automatically displays your documentation in the link with a structure of the type:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://github_user_name.github.io/repository_name/
+</code></pre></div></div>
+:ET
