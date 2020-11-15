@@ -101,7 +101,7 @@ When makefile is written by cmake, we firtsly see:
 ```bash
 fatal error: opencv/cv.h: No such file or directory
 ```
-This happend because we need to include opencv2. Solution. Change in `slam-SD-SLAM/src/ORBextractor.h`: `#include <opencv/cv.h>` -> `#include "opencv2/opencv.hpp"`
+This happend because we need to include opencv2. Solution. Change in `slam-SD-SLAM/src/ORBextractor.h`: `#include <opencv/cv.h>` -> `#include <opencv2/opencv.hpp>`
 
 
 TFM work and author:
