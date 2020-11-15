@@ -9,38 +9,38 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>Ecuations - Robotics Lab URJC</title>
-<meta name="description" content="The template has been set up to administer equations">
+<!-- begin _includes/seo.html --><title>1st Week - Robotics Lab URJC</title>
+<meta name="description" content="VIO-SLAM inizialization">
 
 
 
 <meta property="og:type" content="article">
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="Robotics Lab URJC">
-<meta property="og:title" content="Ecuations">
-<meta property="og:url" content="http://localhost:4000/your%20category/ecuations/">
+<meta property="og:title" content="1st Week">
+<meta property="og:url" content="http://localhost:4000/week%20progress/first-week/">
 
 
-  <meta property="og:description" content="The template has been set up to administer equations">
-
-
-
-
-
-
-
-  <meta property="article:published_time" content="2019-09-03T00:00:00+02:00">
+  <meta property="og:description" content="VIO-SLAM inizialization">
 
 
 
 
 
-  
+
+
+  <meta property="article:published_time" content="2020-11-15T00:00:00+01:00">
+
+
+
+
 
   
 
+  
 
-<link rel="canonical" href="http://localhost:4000/your%20category/ecuations/">
+
+<link rel="canonical" href="http://localhost:4000/week%20progress/first-week/">
 
 
 
@@ -322,15 +322,15 @@
 
 
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="Ecuations">
-    <meta itemprop="description" content="The template has been set up to administer equations">
-    <meta itemprop="datePublished" content="September 03, 2019">
+    <meta itemprop="headline" content="1st Week">
+    <meta itemprop="description" content="VIO-SLAM inizialization">
+    <meta itemprop="datePublished" content="November 15, 2020">
     
 
     <div class="page__inner-wrap">
       
         <header>
-          <h1 id="page-title" class="page__title" itemprop="headline">Ecuations
+          <h1 id="page-title" class="page__title" itemprop="headline">1st Week
 </h1>
           
             <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
@@ -338,7 +338,7 @@
 
 
 
-  less than 1 minute read
+  1 minute read
 </p>
           
         </header>
@@ -350,18 +350,100 @@
             <nav class="toc">
               <header><h4 class="nav__title"><i class="fas fa-cog"></i> TOC installation</h4></header>
               <ul class="toc__menu">
-  <li><a href="#how-do-you-use-them">How do you use them?</a></li>
+  <li><a href="#compile-vio-slam-alogorithm">Compile VIO-SLAM alogorithm</a></li>
 </ul>
             </nav>
           </aside>
         
-        <h2 id="how-do-you-use-them">How do you use them?</h2>
+        <p>I had one objetive.</p>
 
-<p>The equations admitted are those usually used in Latex and Markdown. Thanks to the mathjax library they are rendered.</p>
+<h2 id="compile-vio-slam-alogorithm">Compile VIO-SLAM alogorithm</h2>
 
-<script type="math/tex; mode=display">\frac{-b\pm\sqrt{b^2-4ac}}{2a}</script>
+<p>First step: To clone the <a href="https://github.com/javimdr/slam-SD-SLAM">repo</a></p>
 
-<p>Thanks to this library and the integration with Minimal Mistakes, the result of your documentation will look spectacular.</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git clone https://github.com/javimdr/slam-SD-SLAM
+</code></pre></div></div>
+
+<p>Then we need:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd </span>slam-SD-SLAM<span class="p">;</span> <span class="nb">mkdir </span>build<span class="p">;</span> <span class="nb">cd </span>build/
+</code></pre></div></div>
+
+<p>And finally:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cmake ..
+make
+</code></pre></div></div>
+
+<h1 id="cmake-errors">Cmake errors</h1>
+<p>We can see different errors while cmake:</p>
+<ul>
+  <li>OpenCV 2.4.3 is not located. We can install it thanks following <a href="https://github.com/jayrambhia/Install-OpenCV">link</a></li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git clone https://github.com/jayrambhia/Install-OpenCV
+<span class="nb">cd </span>Ubuntu/2.4/
+<span class="nb">chmod</span> +x opencv2_4_3.sh
+./opencv2_4_3.sh
+</code></pre></div></div>
+<ul>
+  <li>Could not find a configuration file for package “OpenCV”.
+We can see following error:</li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>CMake Error at CMakeLists.txt:47 <span class="o">(</span>find_package<span class="o">)</span>:
+  Could not find a configuration file <span class="k">for </span>package <span class="s2">"OpenCV"</span> that is compatible
+  with requested version <span class="s2">"2.4.3"</span><span class="nb">.</span>
+
+  The following configuration files were considered but not accepted:
+
+    /usr/lib/x86_64-linux-gnu/cmake/opencv4/OpenCVConfig.cmake, version: 4.2.0
+    /lib/x86_64-linux-gnu/cmake/opencv4/OpenCVConfig.cmake, version: 4.2.0
+
+</code></pre></div></div>
+<p>Solution: To change opencv 2.4.3 requirement to 4.2.0
+So, we don’t need to install opencv 2.4.3</p>
+<div class="language-cmake highlighter-rouge"><div class="highlight"><pre class="highlight"><code>46 | <span class="nb">find_package</span><span class="p">(</span>OpenCV 4.2.0 REQUIRED<span class="p">)</span>
+</code></pre></div></div>
+
+<ul>
+  <li>Then appears Eigen3 error.</li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>CMake Error at CMakeLists.txt:50 <span class="o">(</span>find_package<span class="o">)</span>:
+  By not providing <span class="s2">"FindEigen3.cmake"</span> <span class="k">in </span>CMAKE_MODULE_PATH this project has
+  asked CMake to find a package configuration file provided by <span class="s2">"Eigen3"</span>, but
+  CMake did not find one.
+
+  Could not find a package configuration file provided by <span class="s2">"Eigen3"</span> <span class="o">(</span>requested
+  version 3.1.0<span class="o">)</span> with any of the following names:
+
+    Eigen3Config.cmake
+    eigen3-config.cmake
+
+</code></pre></div></div>
+<p>Solution:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt-get <span class="nb">install </span>libeigen3-dev
+</code></pre></div></div>
+
+<ul>
+  <li>Then appears Pangolin location error (non Covid-19),  which solution can be found <a href="https://github.com/stevenlovegrove/Pangolin">here</a>. We finaly solved all cmake errors.</li>
+</ul>
+
+<h1 id="make-errors">Make errors</h1>
+<p>When makefile is written by cmake, we firtsly see:</p>
+<ul>
+  <li>OpenCV fatal error.
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>fatal error: opencv/cv.h: No such file or directory
+</code></pre></div>    </div>
+    <p>This happend because we need to include opencv2. Solution. Change in ‘slam-SD-SLAM/src/ORBextractor.h’ #include &lt;opencv/cv.h&gt; -&gt; #include “opencv2/opencv.hpp”</p>
+  </li>
+</ul>
+
+<p>TFM work and author:</p>
+<ul>
+  <li><a href="https://gsyc.urjc.es/jmplaza/students/tfm-slam-vio_sdslam-javier_martinez-2020.pdf">Algoritmo de autolocalizacion basado en visión y sensor inercial: VIO-SDSLAM</a> by Javier Martínez del Río.</li>
+</ul>
+
 
         
       </section>
@@ -382,19 +464,15 @@
     
       
       
-      <a href="/tags/#tag-1" class="page__taxonomy-item" rel="tag">tag 1</a><span class="sep">, </span>
+      <a href="/tags/#instalation" class="page__taxonomy-item" rel="tag">Instalation</a><span class="sep">, </span>
     
       
       
-      <a href="/tags/#tag-2" class="page__taxonomy-item" rel="tag">tag 2</a><span class="sep">, </span>
+      <a href="/tags/#slam" class="page__taxonomy-item" rel="tag">SLAM</a><span class="sep">, </span>
     
       
       
-      <a href="/tags/#tag-3" class="page__taxonomy-item" rel="tag">tag 3</a><span class="sep">, </span>
-    
-      
-      
-      <a href="/tags/#tag-4" class="page__taxonomy-item" rel="tag">tag 4</a>
+      <a href="/tags/#vio-sdslam" class="page__taxonomy-item" rel="tag">VIO-SDSLAM</a>
     
     </span>
   </p>
@@ -415,35 +493,36 @@
     
       
       
-      <a href="/categories/#your-category" class="page__taxonomy-item" rel="tag">your category</a>
+      <a href="/categories/#week-progress" class="page__taxonomy-item" rel="tag">Week Progress</a>
     
     </span>
   </p>
 
 
         
-          <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2019-09-03T00:00:00+02:00">September 03, 2019</time></p>
+          <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2020-11-15T00:00:00+01:00">November 15, 2020</time></p>
         
       </footer>
 
       <section class="page__share">
   
 
-  <a href="https://twitter.com/intent/tweet?text=Ecuations%20http%3A%2F%2Flocalhost%3A4000%2Fyour%2520category%2Fecuations%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+  <a href="https://twitter.com/intent/tweet?text=1st+Week%20http%3A%2F%2Flocalhost%3A4000%2Fweek%2520progress%2Ffirst-week%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
 
-  <!--<a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fyour%2520category%2Fecuations%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>-->
+  <!--<a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fweek%2520progress%2Ffirst-week%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>-->
 
-  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fyour%2520category%2Fecuations%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fweek%2520progress%2Ffirst-week%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
 </section>
 
 
       
   <nav class="pagination">
     
-      <a href="#" class="pagination--pager disabled">Previous</a>
-    
-    
       <a href="/your%20category/previous-work/" class="pagination--pager" title="My first post
+">Previous</a>
+    
+    
+      <a href="/week%20progress/zero-week/" class="pagination--pager" title="0 Week
 ">Next</a>
     
   </nav>
@@ -496,34 +575,6 @@
     
     <h2 class="archive__item-title" itemprop="headline">
       
-        <a href="/week%20progress/first-week/" rel="permalink">1st Week
-</a>
-      
-    </h2>
-    
-      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
-
-
-
-
-  1 minute read
-</p>
-    
-    <p class="archive__item-excerpt" itemprop="description">VIO-SLAM inizialization
-</p>
-  </article>
-</div>
-
-        
-          
-
-
-
-<div class="grid__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title" itemprop="headline">
-      
         <a href="/your%20category/previous-work/" rel="permalink">My first post
 </a>
       
@@ -538,6 +589,34 @@
 </p>
     
     <p class="archive__item-excerpt" itemprop="description">This is an example of my first post
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/your%20category/ecuations/" rel="permalink">Ecuations
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  less than 1 minute read
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">The template has been set up to administer equations
 </p>
   </article>
 </div>

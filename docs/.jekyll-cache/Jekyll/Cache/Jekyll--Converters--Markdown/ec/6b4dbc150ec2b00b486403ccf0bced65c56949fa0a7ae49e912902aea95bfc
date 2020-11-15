@@ -1,0 +1,19 @@
+I"�<p>I’d made two objetives for the zero week.</p>
+
+<h2 id="tfm-readings">TFM readings</h2>
+
+<p>For first touch to SLAM I’ve read, not in a focus way, two TFM.</p>
+
+<ul>
+  <li>
+    <p><a href="https://gsyc.urjc.es/jmplaza/students/tfm-slam-sdslam+_rgbd-omar_garrido-2020.pdf">SD-SLAM+: Mejora de un algoritmo de Visual SLAM mediante información de profundidad con cámara RGBD</a> by Omar Garrido Martín.</p>
+  </li>
+  <li>
+    <p><a href="https://gsyc.urjc.es/jmplaza/students/tfm-slam-vio_sdslam-javier_martinez-2020.pdf">Algoritmo de autolocalizacion basado en visión y sensor inercial: VIO-SDSLAM</a> by Javier Martínez del Río.</p>
+  </li>
+</ul>
+
+<h2 id="website">Website</h2>
+
+<p>I’ve done the init commit of this web site.</p>
+:ET

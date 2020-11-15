@@ -2,7 +2,7 @@
 layout: splash
 permalink: /
 header:
-  overlay_color: "#5e616c"
+  overlay_color: "#5e616c" #"#87CEEB"
   overlay_image: /assets/images/cover/peloto_texto.png
   actions:
     #- label: "<i class='fas fa-download'></i> Install now"
@@ -40,12 +40,15 @@ youTube_id: ID7qaEcIu4k
 
 Hello, everybody.
 
-You can write an introduction about the work you are going to do, links, something about yourself, etc.
+<!-- It's Pablo.  -->
+On this website I'll be posting my progressions through my Master Thesis during this academic year (2020/21).
 
-In the `README.md` file at the root of the project are the steps to replicate the Minimal mistakes template on your local machine. This way you don't need to upload it to GitHub to be represented until it's ready.
+<!-- You can write an introduction about the work you are going to do, links, something about yourself, etc. -->
 
-Uploading content to GitHub automatically displays your documentation in the link with a structure of the type:
+<!-- In the `README.md` file at the root of the project are the steps to replicate the Minimal mistakes template on your local machine. This way you don't need to upload it to GitHub to be represented until it's ready. -->
 
-```
-https://github_user_name.github.io/repository_name/
-```
+<!-- Uploading content to GitHub automatically displays your documentation in the link with a structure of the type: -->
+
+<!-- ``` -->
+<!-- https://github_user_name.github.io/repository_name/ -->
+<!-- ``` -->

@@ -1,0 +1,57 @@
+I"C	<p>I had one objetive.</p>
+
+<h2 id="compile-vio-slam-alogorithm">Compile VIO-SLAM alogorithm</h2>
+
+<p>First step:</p>
+<ul>
+  <li>Clone the <a href="https://github.com/javimdr/slam-SD-SLAM">repo</a></li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git clone https://github.com/javimdr/slam-SD-SLAM
+</code></pre></div></div>
+
+<p>Then we need:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">mkdir </span>build<span class="p">;</span> <span class="nb">cd </span>build/
+</code></pre></div></div>
+
+<p>And finally:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cmake ..
+make
+</code></pre></div></div>
+
+<p>We can see different errors while cmake:</p>
+<ul>
+  <li>OpenCV 2.4.3 is not located. We can install it thanks following <a href="https://github.com/jayrambhia/Install-OpenCV">link</a></li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git clone https://github.com/jayrambhia/Install-OpenCV
+<span class="nb">cd </span>Ubuntu/2.4/
+<span class="nb">chmod</span> +x opencv2_4_3.sh
+./opencv2_4_3.sh
+</code></pre></div></div>
+<ul>
+  <li>Could not find a configuration file for package “OpenCV”.
+We can see following error:</li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>CMake Error at CMakeLists.txt:47 <span class="o">(</span>find_package<span class="o">)</span>:
+  Could not find a configuration file <span class="k">for </span>package <span class="s2">"OpenCV"</span> that is compatible
+  with requested version <span class="s2">"2.4.3"</span><span class="nb">.</span>
+
+  The following configuration files were considered but not accepted:
+
+    /usr/lib/x86_64-linux-gnu/cmake/opencv4/OpenCVConfig.cmake, version: 4.2.0
+    /lib/x86_64-linux-gnu/cmake/opencv4/OpenCVConfig.cmake, version: 4.2.0
+
+</code></pre></div></div>
+
+<p>TFM:</p>
+<ul>
+  <li><a href="https://gsyc.urjc.es/jmplaza/students/tfm-slam-vio_sdslam-javier_martinez-2020.pdf">Algoritmo de autolocalizacion basado en visión y sensor inercial: VIO-SDSLAM</a> by Javier Martínez del Río.</li>
+</ul>
+
+<h2 id="website-creation">Website creation</h2>
+
+<p>I’ve done the init commit of this web site.</p>
+:ET
