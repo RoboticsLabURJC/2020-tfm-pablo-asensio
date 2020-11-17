@@ -10,7 +10,7 @@ var store = [{
         "url": "http://localhost:4000/your%20category/previous-work/",
         "teaser":null},{
         "title": "1st Week",
-        "excerpt":"I had one objetive. Compile VIO-SLAM alogorithm First step: To clone the repo git clone https://github.com/javimdr/slam-SD-SLAM Then we need: cd slam-SD-SLAM; mkdir build; cd build/ And finally: cmake .. make Cmake errors We can see different errors while cmake: OpenCV 2.4.3 is not located. We can install it thanks following...","categories": ["Week Progress"],
+        "excerpt":"I had one objetive. Compile VIO-SLAM alogorithm First step: To clone the repo git clone https://github.com/javimdr/slam-SD-SLAM Then we need: cd slam-SD-SLAM; mkdir build; cd build/ And finally: cmake .. make Cmake errors We can see different errors while cmake: 1 - OpenCV 2.4.3 is not located. We can install it...","categories": ["Week Progress"],
         "tags": ["SLAM","VIO-SDSLAM","Instalation"],
         "url": "http://localhost:4000/week%20progress/first-week/",
         "teaser":null},{

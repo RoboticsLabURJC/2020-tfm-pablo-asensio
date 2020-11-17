@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-11-15T03:33:30+01:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Robotics Lab URJC</title><subtitle>Programming Robot Intelligence</subtitle><author><name>Your Name</name></author><entry><title type="html">1st Week</title><link href="http://localhost:4000/week%20progress/first-week/" rel="alternate" type="text/html" title="1st Week" /><published>2020-11-15T00:00:00+01:00</published><updated>2020-11-15T00:00:00+01:00</updated><id>http://localhost:4000/week%20progress/first-week</id><content type="html" xml:base="http://localhost:4000/week%20progress/first-week/">&lt;p&gt;I had one objetive.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-11-16T22:08:23+01:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Robotics Lab URJC</title><subtitle>Programming Robot Intelligence</subtitle><author><name>Your Name</name></author><entry><title type="html">1st Week</title><link href="http://localhost:4000/week%20progress/first-week/" rel="alternate" type="text/html" title="1st Week" /><published>2020-11-15T00:00:00+01:00</published><updated>2020-11-15T00:00:00+01:00</updated><id>http://localhost:4000/week%20progress/first-week</id><content type="html" xml:base="http://localhost:4000/week%20progress/first-week/">&lt;p&gt;I had one objetive.&lt;/p&gt;
 
 &lt;h2 id=&quot;compile-vio-slam-alogorithm&quot;&gt;Compile VIO-SLAM alogorithm&lt;/h2&gt;
 
@@ -20,7 +20,7 @@ make
 &lt;h1 id=&quot;cmake-errors&quot;&gt;Cmake errors&lt;/h1&gt;
 &lt;p&gt;We can see different errors while cmake:&lt;/p&gt;
 &lt;ul&gt;
-  &lt;li&gt;OpenCV 2.4.3 is not located. We can install it thanks following &lt;a href=&quot;https://github.com/jayrambhia/Install-OpenCV&quot;&gt;link&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;1 - OpenCV 2.4.3 is not located. We can install it thanks following &lt;a href=&quot;https://github.com/jayrambhia/Install-OpenCV&quot;&gt;link&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git clone https://github.com/jayrambhia/Install-OpenCV
@@ -49,7 +49,7 @@ So, we don’t need to install opencv 2.4.3&lt;/p&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;Then appears Eigen3 error.&lt;/li&gt;
+  &lt;li&gt;2 - Then appears Eigen3 error.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;CMake Error at CMakeLists.txt:50 &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;find_package&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;:
@@ -69,16 +69,26 @@ So, we don’t need to install opencv 2.4.3&lt;/p&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;Then appears Pangolin location error (non Covid-19),  which solution can be found &lt;a href=&quot;https://github.com/stevenlovegrove/Pangolin&quot;&gt;here&lt;/a&gt;. We finaly solved all cmake errors.&lt;/li&gt;
+  &lt;li&gt;3 - Then appears Pangolin location error (non Covid-19),  which solution can be found &lt;a href=&quot;https://github.com/stevenlovegrove/Pangolin&quot;&gt;here&lt;/a&gt;. We finaly solved all cmake errors. Clone the repo inside your folder.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h1 id=&quot;make-errors&quot;&gt;Make errors&lt;/h1&gt;
 &lt;p&gt;When makefile is written by cmake, we firtsly see:&lt;/p&gt;
 &lt;ul&gt;
-  &lt;li&gt;OpenCV fatal error.
+  &lt;li&gt;1 - OpenCV fatal error.
     &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;fatal error: opencv/cv.h: No such file or directory
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-    &lt;p&gt;This happend because we need to include opencv2. Solution. Change in ‘slam-SD-SLAM/src/ORBextractor.h’ #include &amp;lt;opencv/cv.h&amp;gt; -&amp;gt; #include “opencv2/opencv.hpp”&lt;/p&gt;
+    &lt;p&gt;This happend because we need to include opencv2. Solution. Change in &lt;code class=&quot;highlighter-rouge&quot;&gt;slam-SD-SLAM/src/ORBextractor.h&lt;/code&gt;: &lt;code class=&quot;highlighter-rouge&quot;&gt;#include &amp;lt;opencv/cv.h&amp;gt;&lt;/code&gt; -&amp;gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;#include &amp;lt;opencv2/opencv.hpp&amp;gt;&lt;/code&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;2 - OpenCV constants error. In Systems.cc
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;error: ‘CV_LOAD_IMAGE_GRAYSCALE’ was not declared &lt;span class=&quot;k&quot;&gt;in &lt;/span&gt;this scope
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+    &lt;p&gt;We need to change this format to &lt;code class=&quot;highlighter-rouge&quot;&gt;cv::IMREAD_GRAYSCALE&lt;/code&gt;. This happens to other constans.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;3 - OpenCV constants error. In Systems.cc
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;error: ‘CV_LOAD_IMAGE_GRAYSCALE’ was not declared &lt;span class=&quot;k&quot;&gt;in &lt;/span&gt;this scope
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+    &lt;p&gt;We need to change this format to &lt;code class=&quot;highlighter-rouge&quot;&gt;cv::IMREAD_GRAYSCALE&lt;/code&gt;. This happens to other constans.&lt;/p&gt;
   &lt;/li&gt;
 &lt;/ul&gt;
 

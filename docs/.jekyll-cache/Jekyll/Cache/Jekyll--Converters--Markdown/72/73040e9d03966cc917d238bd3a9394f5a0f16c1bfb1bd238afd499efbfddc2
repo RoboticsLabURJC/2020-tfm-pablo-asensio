@@ -1,4 +1,4 @@
-I"�<p>I had one objetive.</p>
+I"G<p>I had one objetive.</p>
 
 <h2 id="compile-vio-slam-alogorithm">Compile VIO-SLAM alogorithm</h2>
 
@@ -73,11 +73,19 @@ So, we don’t need to install opencv 2.4.3</p>
 </ul>
 
 <h1 id="make-errors">Make errors</h1>
-<p>When makefile is written by cmake, we firtsly see</p>
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>fatal error: opencv/cv.h: No such file or directory
-   30 | <span class="c">#include &lt;opencv/cv.h&gt;</span>
-</code></pre></div></div>
-<p>This happend because we need to include opencv2</p>
+<p>When makefile is written by cmake, we firtsly see:</p>
+<ul>
+  <li>1 - OpenCV fatal error.
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>fatal error: opencv/cv.h: No such file or directory
+</code></pre></div>    </div>
+    <p>This happend because we need to include opencv2. Solution. Change in <code class="highlighter-rouge">slam-SD-SLAM/src/ORBextractor.h</code>: <code class="highlighter-rouge">#include &lt;opencv/cv.h&gt;</code> -&gt; <code class="highlighter-rouge">#include &lt;opencv2/opencv.hpp&gt;</code></p>
+  </li>
+  <li>2 - OpenCV constants error.
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>error: ‘CV_LOAD_IMAGE_GRAYSCALE’ was not declared <span class="k">in </span>this scope
+</code></pre></div>    </div>
+    <p>We need to change this format to <code class="highlighter-rouge">cv::IMREAD_GRAYSCALE</code>. This happens to other constans.</p>
+  </li>
+</ul>
 
 <p>TFM work and author:</p>
 <ul>

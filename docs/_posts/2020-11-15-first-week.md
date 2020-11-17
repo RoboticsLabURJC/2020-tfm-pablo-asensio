@@ -45,7 +45,7 @@ make
 
 # Cmake errors
 We can see different errors while cmake:
-- OpenCV 2.4.3 is not located. We can install it thanks following [link](https://github.com/jayrambhia/Install-OpenCV)
+- 1 - OpenCV 2.4.3 is not located. We can install it thanks following [link](https://github.com/jayrambhia/Install-OpenCV)
 
 ```bash
 git clone https://github.com/jayrambhia/Install-OpenCV
@@ -73,7 +73,7 @@ So, we don't need to install opencv 2.4.3
 46 | find_package(OpenCV 4.2.0 REQUIRED)
 ```
 
-- Then appears Eigen3 error.
+- 2 - Then appears Eigen3 error.
 
 ```bash
 CMake Error at CMakeLists.txt:50 (find_package):
@@ -93,15 +93,27 @@ Solution:
 sudo apt-get install libeigen3-dev
 ```
 
-- Then appears Pangolin location error (non Covid-19),  which solution can be found [here](https://github.com/stevenlovegrove/Pangolin). We finaly solved all cmake errors.
+- 3 - Then appears Pangolin location error (non Covid-19),  which solution can be found [here](https://github.com/stevenlovegrove/Pangolin). We finaly solved all cmake errors. Clone the repo inside your folder.
 
 # Make errors
 When makefile is written by cmake, we firtsly see:
-- OpenCV fatal error.
+- 1 - OpenCV fatal error.
 ```bash
 fatal error: opencv/cv.h: No such file or directory
 ```
 This happend because we need to include opencv2. Solution. Change in `slam-SD-SLAM/src/ORBextractor.h`: `#include <opencv/cv.h>` -> `#include <opencv2/opencv.hpp>`
+
+- 2 - OpenCV constants error. In Systems.cc
+```bash
+error: ‘CV_LOAD_IMAGE_GRAYSCALE’ was not declared in this scope
+```
+We need to change this format to `cv::IMREAD_GRAYSCALE`. This happens to other constans.
+
+- 3 - OpenCV constants error. In Systems.cc
+```bash
+error: ‘CV_LOAD_IMAGE_GRAYSCALE’ was not declared in this scope
+```
+We need to change this format to `cv::IMREAD_GRAYSCALE`. This happens to other constans.
 
 
 TFM work and author:

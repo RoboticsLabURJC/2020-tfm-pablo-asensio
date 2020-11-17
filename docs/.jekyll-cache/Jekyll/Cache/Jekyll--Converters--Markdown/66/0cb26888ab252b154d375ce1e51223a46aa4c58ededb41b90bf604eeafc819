@@ -1,4 +1,4 @@
-I"7<p>I had one objetive.</p>
+I"�<p>I had one objetive.</p>
 
 <h2 id="compile-vio-slam-alogorithm">Compile VIO-SLAM alogorithm</h2>
 
@@ -20,7 +20,7 @@ make
 <h1 id="cmake-errors">Cmake errors</h1>
 <p>We can see different errors while cmake:</p>
 <ul>
-  <li>OpenCV 2.4.3 is not located. We can install it thanks following <a href="https://github.com/jayrambhia/Install-OpenCV">link</a></li>
+  <li>1 - OpenCV 2.4.3 is not located. We can install it thanks following <a href="https://github.com/jayrambhia/Install-OpenCV">link</a></li>
 </ul>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git clone https://github.com/jayrambhia/Install-OpenCV
@@ -45,11 +45,11 @@ We can see following error:</li>
 </code></pre></div></div>
 <p>Solution: To change opencv 2.4.3 requirement to 4.2.0
 So, we don’t need to install opencv 2.4.3</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>46 | find_package(OpenCV 4.2.0 REQUIRED)
+<div class="language-cmake highlighter-rouge"><div class="highlight"><pre class="highlight"><code>46 | <span class="nb">find_package</span><span class="p">(</span>OpenCV 4.2.0 REQUIRED<span class="p">)</span>
 </code></pre></div></div>
 
 <ul>
-  <li>Then appears Eigen3 error.</li>
+  <li>2 - Then appears Eigen3 error.</li>
 </ul>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>CMake Error at CMakeLists.txt:50 <span class="o">(</span>find_package<span class="o">)</span>:
@@ -69,15 +69,23 @@ So, we don’t need to install opencv 2.4.3</p>
 </code></pre></div></div>
 
 <ul>
-  <li>Then appears Pangolin location error (non Covid-19),  which solution can be found <a href="https://github.com/stevenlovegrove/Pangolin">here</a>. We finaly solved all cmake errors.</li>
+  <li>3 - Then appears Pangolin location error (non Covid-19),  which solution can be found <a href="https://github.com/stevenlovegrove/Pangolin">here</a>. We finaly solved all cmake errors. Clone the repo inside your folder.</li>
 </ul>
 
 <h1 id="make-errors">Make errors</h1>
-<p>When makefile is written by cmake, we firtsly see</p>
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>fatal error: opencv/cv.h: No such file or directory
-   30 | <span class="c">#include &lt;opencv/cv.h&gt;</span>
-
-</code></pre></div></div>
+<p>When makefile is written by cmake, we firtsly see:</p>
+<ul>
+  <li>1 - OpenCV fatal error.
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>fatal error: opencv/cv.h: No such file or directory
+</code></pre></div>    </div>
+    <p>This happend because we need to include opencv2. Solution. Change in <code class="highlighter-rouge">slam-SD-SLAM/src/ORBextractor.h</code>: <code class="highlighter-rouge">#include &lt;opencv/cv.h&gt;</code> -&gt; <code class="highlighter-rouge">#include &lt;opencv2/opencv.hpp&gt;</code></p>
+  </li>
+  <li>2 - OpenCV constants error. In Systems.cc
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>error: ‘CV_LOAD_IMAGE_GRAYSCALE’ was not declared <span class="k">in </span>this scope
+</code></pre></div>    </div>
+    <p>We need to change this format to <code class="highlighter-rouge">cv::IMREAD_GRAYSCALE</code>. This happens to other constans.</p>
+  </li>
+</ul>
 
 <p>TFM work and author:</p>
 <ul>
