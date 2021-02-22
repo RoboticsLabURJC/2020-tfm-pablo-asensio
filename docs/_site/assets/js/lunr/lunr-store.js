@@ -18,4 +18,9 @@ var store = [{
         "excerpt":"I’d made two objetives for the zero week. TFM readings For first touch to SLAM I’ve read, not in a focus way, two TFM. SD-SLAM+: Mejora de un algoritmo de Visual SLAM mediante información de profundidad con cámara RGBD by Omar Garrido Martín. Algoritmo de autolocalizacion basado en visión y...","categories": ["Week Progress"],
         "tags": ["SLAM","VIO-SDSLAM","SD-SLAM+"],
         "url": "http://localhost:4000/week%20progress/zero-week/",
+        "teaser":null},{
+        "title": "2nd - 14th Week",
+        "excerpt":"Due to Master’s exams and practical works I didn’t update this page. Following, I resume my progresses during this period. Compile VIO-SLAM from the vio-sdslam branch of the JdeRobot/SDslam repository Basicly, I had to do the same work as the 1st week. Them I had to check if its works...","categories": ["Week Progress"],
+        "tags": ["SLAM","VIO-SDSLAM","Up to day"],
+        "url": "http://localhost:4000/week%20progress/second-to-14th/",
         "teaser":null}]

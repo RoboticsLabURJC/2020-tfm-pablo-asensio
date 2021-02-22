@@ -1,0 +1,27 @@
+I"�<p>Due to Master’s exams and practical works I didn’t update this page. Following, I resume my progresses during this period.</p>
+
+<h2 id="compile-vio-slam-alogorithm">Compile VIO-SLAM alogorithm</h2>
+
+<p>First step: To clone the <a href="https://github.com/javimdr/slam-SD-SLAM">repo</a></p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git clone https://github.com/javimdr/slam-SD-SLAM
+</code></pre></div></div>
+
+<p>Then we need:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd </span>slam-SD-SLAM<span class="p">;</span> <span class="nb">mkdir </span>build<span class="p">;</span> <span class="nb">cd </span>build/
+</code></pre></div></div>
+
+<p>And finally:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cmake ..
+make
+</code></pre></div></div>
+
+<h1 id="cmake-errors">Cmake errors</h1>
+
+<p>TFM work and author:</p>
+<ul>
+  <li><a href="https://gsyc.urjc.es/jmplaza/students/tfm-slam-vio_sdslam-javier_martinez-2020.pdf">Algoritmo de autolocalizacion basado en visión y sensor inercial: VIO-SDSLAM</a> by Javier Martínez del Río.</li>
+</ul>
+
+:ET

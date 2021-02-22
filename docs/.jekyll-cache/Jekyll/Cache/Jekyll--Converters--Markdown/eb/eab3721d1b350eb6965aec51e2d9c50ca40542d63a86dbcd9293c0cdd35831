@@ -1,0 +1,16 @@
+I"�<p>Due to Master’s exams and practical works I didn’t update this page. Following, I resume my progresses during this period.</p>
+
+<h2 id="compile-vio-slam-from-the-vio-sdslam-branch-of-the-jderobotsdslam-repository">Compile VIO-SLAM from the vio-sdslam branch of the JdeRobot/SDslam repository</h2>
+
+<p>Basicly, I had to do the same work as the 1st week.</p>
+
+<h2 id="check-sdslam-work-properly">Check SDslam work properly</h2>
+
+<h1 id="cmake-errors">Cmake errors</h1>
+
+<p>TFM work and author:</p>
+<ul>
+  <li><a href="https://gsyc.urjc.es/jmplaza/students/tfm-slam-vio_sdslam-javier_martinez-2020.pdf">Algoritmo de autolocalizacion basado en visión y sensor inercial: VIO-SDSLAM</a> by Javier Martínez del Río.</li>
+</ul>
+
+:ET
