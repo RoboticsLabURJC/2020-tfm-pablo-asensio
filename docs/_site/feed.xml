@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2021-02-22T19:22:13+01:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Robotics Lab URJC</title><subtitle>Programming Robot Intelligence</subtitle><author><name>Your Name</name></author><entry><title type="html">2nd - 14th Week</title><link href="http://localhost:4000/week%20progress/second-to-14th/" rel="alternate" type="text/html" title="2nd - 14th Week" /><published>2021-02-22T00:00:00+01:00</published><updated>2021-02-22T00:00:00+01:00</updated><id>http://localhost:4000/week%20progress/second-to-14th</id><content type="html" xml:base="http://localhost:4000/week%20progress/second-to-14th/">&lt;p&gt;Due to Master’s exams and practical works I didn’t update this page. Following, I resume my progresses during this period.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2021-02-22T19:37:56+01:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Robotics Lab URJC</title><subtitle>Programming Robot Intelligence</subtitle><author><name>Your Name</name></author><entry><title type="html">2nd - 14th Week</title><link href="http://localhost:4000/week%20progress/second-to-14th/" rel="alternate" type="text/html" title="2nd - 14th Week" /><published>2021-02-22T00:00:00+01:00</published><updated>2021-02-22T00:00:00+01:00</updated><id>http://localhost:4000/week%20progress/second-to-14th</id><content type="html" xml:base="http://localhost:4000/week%20progress/second-to-14th/">&lt;p&gt;Due to Master’s exams and practical works I didn’t update this page. Following, I resume my progresses during this period.&lt;/p&gt;
 
 &lt;h2 id=&quot;compile-vio-slam-from-the-vio-sdslam-branch-of-the-jderobotsdslam-repository&quot;&gt;Compile VIO-SLAM from the vio-sdslam branch of the JdeRobot/SDslam repository&lt;/h2&gt;
 
@@ -25,20 +25,20 @@
 
 &lt;p&gt;First configuration seems to work well. But there are some issues.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;assets/images/vio-sdslam1.png&quot; style=&quot;display: block; margin: auto;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/vio-sdslam1.png&quot; style=&quot;display: block; margin: auto;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Issues are:&lt;/p&gt;
 &lt;ul&gt;
   &lt;li&gt;When inertial mode (yellow) shuld exits, it doesn’t. So much error is accumulated due to IMU naturality. And, SDslam doesn’t relunch.&lt;/li&gt;
   &lt;li&gt;On inertial mode, seems yaw edge be bloqued. Following picture show that. Should be a clean corner trayectory, but it doesn’t.
-&lt;img src=&quot;assets/images/vio-sdslam-yaw-blocked.png&quot; style=&quot;display: block; margin: auto;&quot; /&gt;&lt;/li&gt;
+&lt;img src=&quot;/assets/images/vio-sdslam-yaw-blocked.png&quot; style=&quot;display: block; margin: auto;&quot; /&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;With the second configuration, extra issues appears:&lt;/p&gt;
 &lt;ul&gt;
   &lt;li&gt;Image seems to be modified. Looks odd.&lt;/li&gt;
   &lt;li&gt;Takes long time to start SDslam.
-&lt;img src=&quot;assets/images/vio-sdslam-white.png&quot; style=&quot;display: block; margin: auto;&quot; /&gt;&lt;/li&gt;
+&lt;img src=&quot;/assets/images/vio-sdslam-white.png&quot; style=&quot;display: block; margin: auto;&quot; /&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;conclusions-of-this-weeks&quot;&gt;Conclusions of this weeks&lt;/h2&gt;
