@@ -1,0 +1,3 @@
+[submodule "exercises/MonocularVisualOdometry"]
+	path = exercises/MonocularVisualOdometry
+	url = https://github.com/PabloAsensio/MonocularVisualOdometry.git
