@@ -1,8 +1,0 @@
-I"†<h2 id="how-do-you-use-them">How do you use them?</h2>
-
-<p>The equations admitted are those usually used in Latex and Markdown. Thanks to the mathjax library they are rendered.</p>
-
-<script type="math/tex; mode=display">\frac{-b\pm\sqrt{b^2-4ac}}{2a}</script>
-
-<p>Thanks to this library and the integration with Minimal Mistakes, the result of your documentation will look spectacular.</p>
-:ET
