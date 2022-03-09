@@ -10,16 +10,23 @@ classes: wide
 sidebar:
   nav: "docs"
 ---
+## Purpose
 
-## Working with Posts
+In this master's thesis we want to integrate two exercises in the [RoboticsAcademy](http://jderobot.github.io/RoboticsAcademy/) platform of the [JdeRobot organization](https://jderobot.github.io/).
+These exercises deal with the following topics:
 
-Posts are stored in the `_posts` directory and named according to the `YEAR-MONTH-DAY-title.MARKUP` format as per the usual.
+- 🌏 3D visual odometry. [Here](https://github.com/PabloAsensio/MonocularVisualOdometry/) you can find the repository where I am working before integration on the web.
+- 🗺  Visual SLAM
 
-Where `YEAR` is a four-digit number, `MONTH` and `DAY` are both two-digit numbers, and `MARKUP` is the file extension representing the format used in the file. For example, the following are examples of valid post filenames:
+We could divide this project into 4 main phases:
 
+- 👷 Pre-integration of the visual odometry exercise. (Currenly working here in this [repository](https://github.com/PabloAsensio/MonocularVisualOdometry/)).
+- ❌ Integration of the visual odometry exercise on the web.
+- ❌ Pre-integration of the visual SLAM exercise.
+- ❌ Integration of the visual SLAM exercise on the web.
 
-```bash
-2019-08-20-writing-jekyll-posts.md
-```
+Also there exist other targets to complete:
 
-It is recommended to store the images in the `/assets/images/` directory. This way you have a well-defined structure.
+- 📑 The redaction of the thesis. 
+- 🚑 The maintenance of the blog.
+- 🔎 The updating of old repositories if it is requiered.
