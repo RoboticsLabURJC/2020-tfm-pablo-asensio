@@ -122,24 +122,24 @@ analytics:
 # PROFILE
 # Site Author
 author:
-  name             : "Your Name"
+  name             : "Pablo Asensio"
   avatar           : "/assets/images/profile.jpg"
   bio              : "Site for my documentation"
-  location         : "Location"
+  location         : "Madrid"
   email            :
   links:
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"
-      url: yourmail@domain.com
+      url: "mailto:p.asensio97@gmail.com"
     - label: "About Me"
       icon: "fas fa-fw fa-link"
-      url: "yoursite.com"
-    - label: "Twitter"
-      icon: "fab fa-fw fa-twitter-square"
-      url: "https://twitter.com/"
+      url: "https://PabloAsensio.github.io"
+    # - label: "Twitter"
+    #   icon: "fab fa-fw fa-twitter-square"
+    #   url: "https://twitter.com/"
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
-      url: "https://github.com/RoboticsLabURJC"
+      url: "https://github.com/PabloAsensio/"
     #- label: "Youtube"
     #  icon: "fab fa-fw fa-youtube"
     #  url: "https://www.youtube.com/channel/UCgmUgpircYAv_QhLQziHJOQ"
