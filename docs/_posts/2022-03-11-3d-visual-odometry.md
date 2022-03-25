@@ -24,7 +24,7 @@ pinned: false
 
 ## Problema
 
-<img align="center" alt="Triangulation" width="600" src="/assets/images/visual-odometry/map.png" />
+<img align="center" alt="Triangulation" width="600" src="/2020-tfm-pablo-asensio/assets/images/visual-odometry/map.png" />
 
 Lo que se quiere obtener es que a partir de una sucesión de imágenes, se consiga seguir la trayectoria que describe la cámara en el vídeo.
 
@@ -36,7 +36,7 @@ Vamos a hablar un poco sobre la odometría visual.
 
 La odometría visual consiste en calcular la rotación y traslación, *pose (**R, t**)*, de la cámara a partir de un conjunto de puntos extraídos de dos imágenes. Se trata de una técnica incremental, ya que se basa en la posición anterior para calcular la pose del segundo frame.
 
-<img align="center" alt="Visual Odometry" width="600" src="/assets/images/visual-odometry/An-example-of-a-monocular-visual-odometry-system-The-relative-poses-Tnm-between-cameras.png" />
+<img align="center" alt="Visual Odometry" width="600" src="/2020-tfm-pablo-asensio/assets/images/visual-odometry/An-example-of-a-monocular-visual-odometry-system-The-relative-poses-Tnm-between-cameras.png" />
 
 Para ello se puede seguir la siguiente estrategia:
 
