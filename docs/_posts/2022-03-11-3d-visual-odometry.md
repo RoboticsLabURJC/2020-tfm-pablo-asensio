@@ -48,3 +48,10 @@ Para ello se puede seguir la siguiente estrategia:
 - Encontrar la matriz esencial, así como la rotación y traslación asociada.
 - Averiguar la escala en caso de que sea odometría visual monocular.
 - Actualizar las matrices *R, t* del movimiento absoluto.
+
+### Visor
+
+<img align="center" alt="Visual Odometry" width="600" src="/2020-tfm-pablo-asensio/assets/images/visual-odometry/visor/visor.png" />
+
+Para la realización del visor se ha dedicido hacerlo con [Three.js](https://threejs.org/). Actualmente solo se puede mover la cámara por el mundo.
+Se puede consultar el código [aquí](https://github.com/PabloAsensio/MonocularVisualOdometry/tree/main/frontend). Donde el código principal es *script.js*.
