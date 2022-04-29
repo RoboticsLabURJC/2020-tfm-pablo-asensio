@@ -58,7 +58,7 @@ Se puede consultar el código [aquí](https://github.com/PabloAsensio/MonocularV
 
 ### Actualizacion del visor
 
-[![New visor]({"/2020-tfm-pablo-asensio/assets/images/visual-odometry/visor/visor.png"})]({"/2020-tfm-pablo-asensio/assets/videos/visual-odometry/visor/video.mp4"} "Visor update")
+<iframe width="560" height="315" src="https://www.youtube.com/embed/iUgueuqVs1E" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 En esta actualización se ha desarrollado un nuevo front, por el que se visualizarán las trayectorias, tanto la estimada como la verdadera.
 
