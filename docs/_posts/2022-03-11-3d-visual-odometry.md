@@ -55,3 +55,18 @@ Para ello se puede seguir la siguiente estrategia:
 
 Para la realización del visor se ha dedicido hacerlo con [Three.js](https://threejs.org/). Actualmente solo se puede mover la cámara por el mundo.
 Se puede consultar el código [aquí](https://github.com/PabloAsensio/MonocularVisualOdometry/tree/main/frontend). Donde el código principal es *script.js*.
+
+### Actualizacion del visor
+
+[![New visor]({"/2020-tfm-pablo-asensio/assets/images/visual-odometry/visor/visor.png"})]({"/2020-tfm-pablo-asensio/assets/videos/visual-odometry/visor/video.mp4"} "Visor update")
+
+En esta actualización se ha desarrollado un nuevo front, por el que se visualizarán las trayectorias, tanto la estimada como la verdadera.
+
+Este frontend funciona sobre una arquitectura de cliente servidor, en el que el servidor, una vez detecta un nuevo usuario en el canal (en principio solo hay un sólo usuario), este empieza a realizar el trabajo de odometría, y a enviar, mediante un puerto socket, los resultados que se obtienen. Estos resultados de pose, se visualizaran en el navegador.
+
+Como hitos a destacar:
+
+- He tenido que aprender desde cero como funciana el desarrollo web, (HTML, CSS, JS).
+- He profundijado el conocimiento de la programación asíncrona.
+
+Aún así, se ha observado que el algoritmo que se tiene implementado ahora, funciona mejor en datasets cuyo recorrido es 2D que 3D. Se debe mejorar este algoritmo. Pero por mi parte se puede ir continuando en el desarrollo del autocorrector y empezando la integración con la plataforma de RoboticAcademy.
