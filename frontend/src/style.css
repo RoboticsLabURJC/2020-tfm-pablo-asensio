@@ -1,0 +1,53 @@
+html,
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    padding: 5px;
+}
+
+body {
+    background-color: beige;
+    transform: perspective(1400px) matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
+    transform-style: preserve-3d;
+}
+
+.content {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0px;
+    top: 0px;
+}
+
+.center {
+    margin: auto;
+    top: 0px;
+    height: 29%;
+    width: 70%;
+}
+
+.image {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    height: 100%;
+}
+
+.scene {
+    position: absolute;
+    top: 30%;
+    height: 50%;
+    width: 100%;
+    outline: none;
+    mix-blend-mode: exclusion;
+}
+
+.webgl {
+    position: absolute;
+    top: 30%;
+    left: 1000;
+    outline: none;
+    mix-blend-mode: exclusion;
+    background-color: rgba(13, 112, 198, 0.702);
+}
