@@ -138,6 +138,13 @@ class VisualOdometry:
         if(self.px_ref.shape[0] < kMinNumFeature):
             self.px_cur = self.detector.detect(self.new_frame)
             self.px_cur = np.array([x.pt for x in self.px_cur], dtype=np.float32)
+
+        # # Fraw flow
+        # if self.new_frame is not None:
+            # for i in range(len(self.px_ref)):
+                # pt_ref = (int(self.px_ref[i][0]), int(self.px_ref[i][1]))
+                # pt_cur = (int(self.px_cur[i][0]), int(self.px_cur[i][1]))
+                # cv2.line(self.new_frame, pt_ref, pt_cur, (0, 255, 0), 1)
             
         self.px_ref = self.px_cur
 
