@@ -5,7 +5,7 @@ import numpy as np
 from .maths.cv_maths import feature_tracking, goodE
 from .maths import rotation2Euler
 from .pinhole_camera import PinholeCamera
-from .scales import (get_absolute_scale_euromav, get_absolute_scale_kitti,
+from .scales import (get_absolute_scale_eurocmav, get_absolute_scale_kitti,
                      get_absolute_scale_vkitti2)
 from .scales import (get_true_rotation_eurocmav, get_true_rotation_kitti, 
                      get_true_rotation_vkitti2)
@@ -93,7 +93,7 @@ class VisualOdometry:
             return scale
 
         if self.dataset == "eurocmav":
-            scale, truth = get_absolute_scale_euromav(self.groundtruth, self.timestamp_groundtruth_list , self.frame_timestamps_list, frame_id)
+            scale, truth = get_absolute_scale_eurocmav(self.groundtruth, self.timestamp_groundtruth_list , self.frame_timestamps_list, frame_id)
             self.true_t = truth
             if self.frame_stage == 0:
                 self.init_t = truth
