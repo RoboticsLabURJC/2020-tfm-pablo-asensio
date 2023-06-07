@@ -2,12 +2,13 @@ import cv2
 import pandas as pd
 import numpy as np
 
-from .maths.cv_maths import feature_tracking
+from .maths.cv_maths import feature_tracking, goodE
 from .maths import rotation2Euler
 from .pinhole_camera import PinholeCamera
-from .scales import (get_absolute_scale_euromav, get_absolute_scale_kitti,
+from .scales import (get_absolute_scale_eurocmav, get_absolute_scale_kitti,
                      get_absolute_scale_vkitti2)
-from .scales import (get_true_rotation_kitti)
+from .scales import (get_true_rotation_eurocmav, get_true_rotation_kitti, 
+                     get_true_rotation_vkitti2)
 
 STAGE_FIRST_FRAME = 0
 STAGE_SECOND_FRAME = 1
@@ -46,6 +47,9 @@ class VisualOdometry:
         self.trueX, self.trueY, self.trueZ = 0, 0, 0
         self.true_R = np.zeros( shape=(3,3) )
         self.true_t = np.zeros((1,3))
+
+        self.init_R = None
+        self.init_t = None
         
         self.detector = cv2.FastFeatureDetector_create(threshold=25, nonmaxSuppression=True)
         self.groundtruth = read_groundtruth(groundtruth_file, dataset)
@@ -59,28 +63,40 @@ class VisualOdometry:
 
         if self.dataset == "kitti":
             self.true_R = get_true_rotation_kitti(self.groundtruth, frame_id)
+            if self.frame_stage == 0:
+                self.init_R = self.true_R
 
         if self.dataset == "vkitti2":
-            pass
+            self.true_R = get_true_rotation_vkitti2(self.groundtruth, frame_id)
+            if self.frame_stage == 0:
+                self.init_R = self.true_R
 
         if self.dataset == "eurocmav":
-            pass  
+            self.true_R = get_true_rotation_eurocmav(self.groundtruth, self.timestamp_groundtruth_list , self.frame_timestamps_list, frame_id)
+            if self.frame_stage == 0:
+                self.init_R = self.true_R
 
     def calculate_absolute_scale(self, frame_id: int) -> float:
 
         if self.dataset == "kitti":
             scale, truth = get_absolute_scale_kitti(self.groundtruth, frame_id)
             self.true_t = truth
+            if self.frame_stage == 0:
+                self.init_t = truth
             return scale
         
         if self.dataset == "vkitti2":
             scale, truth = get_absolute_scale_vkitti2(self.groundtruth, frame_id)
             self.true_t = truth
+            if self.frame_stage == 0:
+                self.init_t = truth
             return scale
 
         if self.dataset == "eurocmav":
-            scale, truth = get_absolute_scale_euromav(self.groundtruth, self.timestamp_groundtruth_list , self.frame_timestamps_list, frame_id)
+            scale, truth = get_absolute_scale_eurocmav(self.groundtruth, self.timestamp_groundtruth_list , self.frame_timestamps_list, frame_id)
             self.true_t = truth
+            if self.frame_stage == 0:
+                self.init_t = truth
             return scale
 
         print("Dataset not supported.")
@@ -122,6 +138,13 @@ class VisualOdometry:
         if(self.px_ref.shape[0] < kMinNumFeature):
             self.px_cur = self.detector.detect(self.new_frame)
             self.px_cur = np.array([x.pt for x in self.px_cur], dtype=np.float32)
+
+        # # Fraw flow
+        # if self.new_frame is not None:
+            # for i in range(len(self.px_ref)):
+                # pt_ref = (int(self.px_ref[i][0]), int(self.px_ref[i][1]))
+                # pt_cur = (int(self.px_cur[i][0]), int(self.px_cur[i][1]))
+                # cv2.line(self.new_frame, pt_ref, pt_cur, (0, 255, 0), 1)
             
         self.px_ref = self.px_cur
 
@@ -147,7 +170,7 @@ class VisualOdometry:
         self.last_frame = self.new_frame
 
     def get_true_euler_angles(self):
-        return rotation2Euler(self.true_R)
+        return rotation2Euler( np.linalg.inv(self.init_R) @ self.true_R )
 
     def get_estimated_euler_angles(self):
         return rotation2Euler(self.cur_R)
