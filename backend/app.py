@@ -64,6 +64,9 @@ def monocular_visual_odometry(info: dict) -> None:
         trueY = vo.true_t[1]
         trueZ = vo.true_t[2]
 
+        if info['dataset'] == 'vkitti2':
+            trueZ = -trueZ
+
         if img_id > 2:
             x, y, z = cur_t[0], cur_t[1], cur_t[2]
         else:
