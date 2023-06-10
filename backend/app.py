@@ -7,6 +7,12 @@ from tqdm import tqdm
 
 from src import PinholeCamera, VisualOdometry
 
+def display_error(x, y, z, true_x, true_y, true_z, counter, file):
+    error_2d = np.sqrt( (true_x - x)**2 + (true_z - z)**2 )
+    error_3d = np.sqrt( (true_x - x)**2 + (true_z - z)**2 + (true_y - y)**2 )
+    with open(file, 'a') as f:
+        f.write(f"{counter},{float(error_2d)},{float(error_3d)}\n")
+
 
 def read_groundtruth_timestamp(gt_file):
     with open(gt_file, "r") as f:
@@ -26,6 +32,7 @@ def load_images(imgs_path: str) -> list:
 def monocular_visual_odometry(info: dict) -> None:
 
     imgs = load_images(info['images_path'])
+    tests_path = "../metrics/kitti_00.csv"
 
     if info['dataset'] not in ['eurocmav', 'kitti', 'vkitti2']: print("Dataset not supported".upper()); exit(0)
 
@@ -45,6 +52,7 @@ def monocular_visual_odometry(info: dict) -> None:
 
     trajectory = np.zeros((1600, 1600, 3), dtype=np.uint8)
 
+    counter = 0
     for img_id, img in tqdm(enumerate(imgs), desc="Progress", ascii=True, total=len(imgs)):
 
         vo.update(img, img_id)
@@ -52,6 +60,12 @@ def monocular_visual_odometry(info: dict) -> None:
         ### 
         # Draw trajectory
         cur_t = vo.cur_t
+        trueX = vo.true_t[0]
+        trueY = vo.true_t[1]
+        trueZ = vo.true_t[2]
+
+        if info['dataset'] == 'vkitti2':
+            trueZ = -trueZ
 
         if img_id > 2:
             x, y, z = cur_t[0], cur_t[1], cur_t[2]
@@ -59,7 +73,7 @@ def monocular_visual_odometry(info: dict) -> None:
             x, y, z = 0.0, 0.0, 0.0
 
         draw_x, draw_y = int(x) + 800, -int(z) + 800
-        true_x, true_y = int(vo.trueX) + 800, -int(vo.trueZ) + 800
+        true_x, true_y = int(trueX) + 800, -int(trueZ) + 800
 
         # print("draw_x, draw_y: {}, {}".format(draw_x-800, draw_y-800))
         # print("true_x, true_y: {}, {}".format(true_x-800, true_y-800))
@@ -75,6 +89,9 @@ def monocular_visual_odometry(info: dict) -> None:
         cv2.imshow("Road facing camera", img)
         cv2.imshow("Trajectory", trajectory)
         ### Draw trajectory
+
+        display_error(x, y, z, trueX, trueY, trueZ, counter, tests_path)
+        counter += 1
 
         if cv2.waitKey(1) & 0xFF == ord("q"):
             cv2.destroyAllWindows()
