@@ -21,6 +21,7 @@ const canvas = document.querySelector('canvas.webgl')
 
 // Scene
 const scene = new THREE.Scene()
+scene.background = new THREE.Color(0x111111);
 
 /**
  * Grid
@@ -40,7 +41,7 @@ scene.add(frameGt)
 /**
  * Lights
  */
-const hemiLight = new THREE.HemisphereLight(0x000000, 0x3d3c3c, 7); // Sun Light
+const hemiLight = new THREE.HemisphereLight(0xffffff, 0x222222, 7); // Cambiar el segundo parámetro al color oscuro deseado (por ejemplo, 0x222222)
 hemiLight.position.set(10, 5, 10)
 hemiLight.rotation.x = 1
 hemiLight.rotation.y = 0
@@ -70,7 +71,7 @@ window.addEventListener('resize', () => {
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
 })
 
-const axesHelper = new THREE.AxesHelper(8); // The X axis is red. The Y axis is green. The Z axis is blue.
+const axesHelper = new THREE.AxesHelper(100); // The X axis is red. The Y axis is green. The Z axis is blue.
 scene.add(axesHelper);
 
 /**
