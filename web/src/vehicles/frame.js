@@ -2,14 +2,25 @@ import '../style.css'
 import * as THREE from 'three'
 
 function createLine(a, b, color = 0xff00ff) {
-    const material = new THREE.LineBasicMaterial({ color: color });
+    var material = new THREE.LineBasicMaterial({ color: color });
 
-    const points = [];
-    points.push(new THREE.Vector3(a[0], a[1], a[2]));
-    points.push(new THREE.Vector3(b[0], b[1], b[2]));
+    let startVector = new THREE.Vector3(a[0], a[1], a[2]);
+    let endVector = new THREE.Vector3(b[0], b[1], b[2]);
 
-    const geometry = new THREE.BufferGeometry().setFromPoints(points);
-    const line = new THREE.Line(geometry, material);
+    let linePoints = [];
+    linePoints.push(startVector, endVector);
+
+    // Create Tube Geometry
+    var tubeGeometry = new THREE.TubeGeometry(
+        new THREE.CatmullRomCurve3(linePoints),
+        512 / 2,// path segments
+        0.25,// THICKNESS
+        4, //Roundness of Tube
+        true //closed
+    );
+
+    // const geometry = new THREE.BufferGeometry().setFromPoints(points);
+    let line = new THREE.Line(tubeGeometry, material);
 
     return line;
 }
